@@ -25,7 +25,7 @@ function getCurrentMonth() {
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
 }
 
-const API_URL = "http://localhost:3001";
+const API_URL = "https://management-system-production-6cd1.up.railway.app";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
