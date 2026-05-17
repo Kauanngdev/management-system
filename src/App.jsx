@@ -370,31 +370,41 @@ function App() {
   }
 
   const pageMeta = {
-    dashboard: {
-      overline: "Financial Operations",
-      title: "Executive Dashboard",
-      subtitle:
-        "Strategic visibility across revenue, expenses and operational performance.",
-    },
-    transactions: {
-      overline: "Operations Ledger",
-      title: "Transactions Control",
-      subtitle:
-        "Monitor, edit and validate all registered financial movements.",
-    },
-    categories: {
-      overline: "Classification Center",
-      title: "Category Management",
-      subtitle:
-        "Organize your accounting structure with revenue and expense groups.",
-    },
-    reports: {
-      overline: "Reporting Workspace",
-      title: "Reports & Exports",
-      subtitle:
-        "Generate summaries and export filtered data for external analysis.",
-    },
-  };
+  dashboard: {
+    overline: "Financial Operations",
+    title: "Executive Dashboard",
+    subtitle:
+      "Strategic visibility across revenue, expenses and operational performance.",
+  },
+
+  transactions: {
+    overline: "Operations Ledger",
+    title: "Transactions Control",
+    subtitle:
+      "Monitor, edit and validate all registered financial movements.",
+  },
+
+  categories: {
+    overline: "Classification Center",
+    title: "Category Management",
+    subtitle:
+      "Organize your accounting structure with revenue and expense groups.",
+  },
+
+  reports: {
+    overline: "Reporting Workspace",
+    title: "Reports & Exports",
+    subtitle:
+      "Generate summaries and export filtered data for external analysis.",
+  },
+
+  analytics: {
+    overline: "Advanced Analytics",
+    title: "Business Intelligence",
+    subtitle:
+      "Advanced financial analytics and strategic performance indicators.",
+  },
+};
 
   const currentMeta = pageMeta[activePage] || pageMeta.dashboard;
 
@@ -828,15 +838,24 @@ function App() {
   }
 
   function renderPageContent() {
-   if (activePage === "transactions") return renderTransactionsPage();
+  if (activePage === "transactions") {
+    return renderTransactionsPage();
+  }
 
-if (activePage === "categories") return renderCategoriesPage();
+  if (activePage === "categories") {
+    return renderCategoriesPage();
+  }
 
-if (activePage === "reports") return renderReportsPage();
+  if (activePage === "reports") {
+    return renderReportsPage();
+  }
 
-if (activePage === "analytics") return <Analytics />;
+  if (activePage === "analytics") {
+    return <Analytics />;
+  }
 
-return renderDashboard();
+  return renderDashboard();
+}
 
   if (!token) {
     return (
