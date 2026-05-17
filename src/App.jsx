@@ -12,6 +12,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
+import Analytics from "./pages/Analytics";
 
 function formatMoney(cents) {
   return (cents / 100).toLocaleString("pt-BR", {
@@ -827,11 +828,15 @@ function App() {
   }
 
   function renderPageContent() {
-    if (activePage === "transactions") return renderTransactionsPage();
-    if (activePage === "categories") return renderCategoriesPage();
-    if (activePage === "reports") return renderReportsPage();
-    return renderDashboard();
-  }
+   if (activePage === "transactions") return renderTransactionsPage();
+
+if (activePage === "categories") return renderCategoriesPage();
+
+if (activePage === "reports") return renderReportsPage();
+
+if (activePage === "analytics") return <Analytics />;
+
+return renderDashboard();
 
   if (!token) {
     return (
@@ -960,7 +965,12 @@ function App() {
           >
             Reports
           </button>
-          <button className="ms-nav-item">Analytics</button>
+          <button
+  className={`ms-nav-item ${activePage === "analytics" ? "active" : ""}`}
+  onClick={() => setActivePage("analytics")}
+>
+  Analytics
+</button>
           <button className="ms-nav-item">Settings</button>
         </nav>
 
